@@ -1,11 +1,33 @@
-name: Test uv setup scripts
+name: Test pixi and uv directories
 
 on:
   push:
   pull_request:
 
 jobs:
-  test-setup-scripts:
+  test-pixi-directory:
+    runs-on: ${{ matrix.os }}
+    permissions:
+      contents: read
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run pixi setup from pixi/
+        if: runner.os != 'Windows'
+        run: ./pixi/setup_pixi_env.sh
+
+      - name: Run pixi setup from pixi/ (Windows)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: .\pixi\setup_pixi_env.ps1
+
+  test-uv-directory:
     runs-on: ${{ matrix.os }}
     permissions:
       contents: read
@@ -18,11 +40,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Run POSIX setup script
+      - name: Run uv setup from uv/
         if: runner.os != 'Windows'
-        run: ./scripts/setup_uv_env.sh
+        run: ./uv/setup_uv_env.sh
 
-      - name: Run Windows setup script
+      - name: Run uv setup from uv/ (Windows)
         if: runner.os == 'Windows'
         shell: pwsh
-        run: ./scripts/setup_uv_env.ps1
+        run: .\uv\setup_uv_env.ps1
