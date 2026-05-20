@@ -36,6 +36,8 @@ Examples of using package managers to install Montreal Forced Aligner and new-fa
 
 Always use `pixi run python my_script.py` instead of `python3 my_script.py` so your script runs in the locked environment from `pixi.toml` and `pixi.lock`.
 
+> If you need to add other dependencies, use `pixi add` (e.g. `pixi add numpy`) or edit `pixi.toml` and then run `pixi install` again.
+
 ### Using pixi in Your Project
 
 After copying `pixi.toml` and `pixi.lock`, you can:
