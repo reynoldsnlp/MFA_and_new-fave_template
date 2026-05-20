@@ -8,24 +8,21 @@ Examples of using package managers to install Montreal Forced Aligner and new-fa
 
 ### Quick Start
 
-1. **Install Pixi** (if not already installed):
-   ```bash
-   curl -LsSf https://pixi.sh/install.sh | bash
-   ```
+1. [**Install Pixi**](https://pixi.prefix.dev/latest/installation/) (if not already installed):
 
 2. **Download the pixi configuration files to your project's folder**:
 
-   **Option A: Command line (Linux/macOS/Windows with curl)**:
+   **Option A: Browser download**
+   - Right-click and save [pixi.toml](https://raw.githubusercontent.com/reynoldsnlp/mfa-and-new-fave-with-uv/main/pixi/pixi.toml)
+   - Right-click and save [pixi.lock](https://raw.githubusercontent.com/reynoldsnlp/mfa-and-new-fave-with-uv/main/pixi/pixi.lock)
+   - Place both files in your project folder
+
+   **Option B: Command line (Linux/macOS/Windows with curl)**:
    ```bash
    cd /path/to/my/project/
    curl -O https://raw.githubusercontent.com/reynoldsnlp/mfa-and-new-fave-with-uv/main/pixi/pixi.toml
    curl -O https://raw.githubusercontent.com/reynoldsnlp/mfa-and-new-fave-with-uv/main/pixi/pixi.lock
    ```
-
-   **Option B: Browser download**
-   - Right-click and save [pixi.toml](https://raw.githubusercontent.com/reynoldsnlp/mfa-and-new-fave-with-uv/main/pixi/pixi.toml)
-   - Right-click and save [pixi.lock](https://raw.githubusercontent.com/reynoldsnlp/mfa-and-new-fave-with-uv/main/pixi/pixi.lock)
-   - Place both files in your project folder
 
 3. **In your project folder, install the environment**:
    ```bash
